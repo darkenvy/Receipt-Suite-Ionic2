@@ -10,7 +10,14 @@ interface Receipt {
 
 @Component({
   selector: 'page-about',
-  templateUrl: 'about.html'
+  templateUrl: 'about.html',
+  styles: [`
+    ion-note {
+      font-size: 12px;
+      align-self: flex-start;
+      margin-top: 14px;
+    }
+  `]
 })
 export class AboutPage {
   public receipt: Receipt[];
