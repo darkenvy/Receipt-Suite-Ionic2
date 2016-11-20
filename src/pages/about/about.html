@@ -9,11 +9,20 @@
 <ion-content padding>
   <h5>Set info about the Items you purchases</h5>
   <ion-list inset *ngFor="let item of receipt">
-    <ion-item>
-      <ion-icon name="leaf" item-left></ion-icon>
-      <ion-note item-right>{{item.id}}</ion-note>
-      <h2>{{item.name}}</h2>
-      <p>${{item.price}}</p>
-    </ion-item>
+    <ion-item-sliding>
+      <ion-item>
+        <ion-icon name="leaf" item-left></ion-icon>
+        <ion-note item-right>{{item.id}}</ion-note>
+        <h2>{{item.name}}</h2>
+        <p>${{item.price}}</p>
+      </ion-item>
+
+      <ion-item-options>
+        <button ion-button>Edit</button>
+        <button ion-button color="danger"><i class="ion-ios-trash"></i></button>
+      </ion-item-options>
+
+    </ion-item-sliding>
   </ion-list>
+
 </ion-content>
