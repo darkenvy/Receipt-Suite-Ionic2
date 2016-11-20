@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h5>Set info about the Items you purchases</h5>
+  <ul *ngFor="let item of receipt">
+    <li>{{item.name}}</li>
+  </ul>
+</ion-content>
