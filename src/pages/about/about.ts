@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
+import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import { ModalContentPage } from '../item-list-modal/modal';
 
 interface Receipt {
   id: number,
+  receiptName: string,
   name: string,
-  price: number
+  price: number,
+  expires: string
 }
 
 @Component({
@@ -22,44 +25,64 @@ interface Receipt {
 export class AboutPage {
   public receipt: Receipt[];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public modalCtrl: ModalController) {
     this.receipt = [
       {
         id: 142354,
-        name: "RITZ CRACKER",
-        price: 8.59
+        receiptName: "RITZ CRACKER",
+        name: '',
+        price: 8.59,
+        expires: ''
       },
       {
         id: 5628,
-        name: "CRAN GOAT CH",
-        price: 6.59
+        receiptName: "CRAN GOAT CH",
+        name: '',
+        price: 6.59,
+        expires: ''
       },
       {
         id: 5628,
-        name: "CRAN GOAT CH",
-        price: 6.59
+        receiptName: "CRAN GOAT CH",
+        name: '',
+        price: 6.59,
+        expires: ''
       },
       {
         id: 947759,
-        name: "MINI NAAN",
-        price: 5.49
+        receiptName: "MINI NAAN",
+        name: '',
+        price: 5.49,
+        expires: ''
       },
       {
         id: 87745,
-        name: "ROTISSERIE",
-        price: 4.99
+        receiptName: "ROTISSERIE",
+        name: '',
+        price: 4.99,
+        expires: ''
       },
       {
         id: 30669,
-        name: "BANANAS",
-        price: 1.39
+        receiptName: "BANANAS",
+        name: '',
+        price: 1.39,
+        expires: ''
       },
       {
         id: 83333,
-        name: "GRN GRAPES",
-        price: 7.99
+        receiptName: "GRN GRAPES",
+        name: '',
+        price: 7.99,
+        expires: ''
       }
     ]
+  }
+
+  openModal(characterNum) {
+    let modal = this.modalCtrl.create(ModalContentPage, characterNum);
+    modal.present();
   }
 
 }

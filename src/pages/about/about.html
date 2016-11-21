@@ -7,6 +7,9 @@
 </ion-header>
 
 <ion-content padding>
+
+  <a ion-item (click)="openModal({charNum: 0})">Gollum</a>
+
   <h5>Set info about the Items you purchases</h5>
   <ion-list inset *ngFor="let item of receipt">
     <ion-item-sliding>
@@ -18,8 +21,12 @@
       </ion-item>
 
       <ion-item-options>
-        <button ion-button>Edit</button>
-        <button ion-button color="danger"><i class="ion-ios-trash"></i></button>
+        <button ion-button (click)="openModal({current: item})">
+          <i class="ion-pricetag"></i>Edit
+        </button>
+        <button ion-button color="danger">
+          <i class="ion-ios-trash"></i>Delete
+        </button>
       </ion-item-options>
 
     </ion-item-sliding>

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Camera } from 'ionic-native';
 import { CameraImage } from './sample-camera-image'; // dummy image
 import { ModalPage } from './modal-page';
-import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
-import { ModalContentPage } from '../modal/pages';
+import { NavController } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-home',
@@ -11,13 +11,9 @@ import { ModalContentPage } from '../modal/pages';
 })
 export class HomePage {
   public base64Image: string;
-  constructor(public navCtrl: NavController,
-              public modalCtrl: ModalController) {}
+  constructor(public navCtrl: NavController) {}
 
-  openModal(characterNum) {
-    let modal = this.modalCtrl.create(ModalContentPage, characterNum);
-    modal.present();
-  }
+
 
   pretendTakePicture() {
     // Made for Ionic Serve since we cand access cordova plugins on ionic serve
