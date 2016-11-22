@@ -5,7 +5,6 @@ import { ModalContentPage } from '../item-list-modal/modal';
 
 interface Receipt {
   id: number,
-  receiptName: string,
   name: string,
   price: number,
   expires: string
@@ -30,50 +29,43 @@ export class AboutPage {
     this.receipt = [
       {
         id: 142354,
-        receiptName: "RITZ CRACKER",
-        name: '',
+        name: "RITZ CRACKER",
         price: 8.59,
         expires: ''
       },
       {
         id: 5628,
-        receiptName: "CRAN GOAT CH",
-        name: '',
+        name: "CRAN GOAT CH",
         price: 6.59,
         expires: ''
       },
       {
         id: 5628,
-        receiptName: "CRAN GOAT CH",
-        name: '',
+        name: "CRAN GOAT CH",
         price: 6.59,
         expires: ''
       },
       {
         id: 947759,
-        receiptName: "MINI NAAN",
-        name: '',
+        name: "MINI NAAN",
         price: 5.49,
         expires: ''
       },
       {
         id: 87745,
-        receiptName: "ROTISSERIE",
-        name: '',
+        name: "ROTISSERIE",
         price: 4.99,
         expires: ''
       },
       {
         id: 30669,
-        receiptName: "BANANAS",
-        name: '',
+        name: "BANANAS",
         price: 1.39,
         expires: ''
       },
       {
         id: 83333,
-        receiptName: "GRN GRAPES",
-        name: '',
+        name: "GRN GRAPES",
         price: 7.99,
         expires: ''
       }

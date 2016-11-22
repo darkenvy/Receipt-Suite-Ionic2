@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ModalContentPage } from '../pages/item-list-modal/modal';
 
+
 @NgModule({
   declarations: [
     MyApp,
