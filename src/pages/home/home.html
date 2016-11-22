@@ -14,11 +14,15 @@
     Take a look at the <code>src/pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
   </p>
-  <p>Debug: {{debug}}</p>
+
+  <ul>
+    <li *ngFor="let item of result">
+      l: {{item.name}}
+    </li>
+  </ul>
 
   <button (click)="takePicture()">Take a picture</button>
   <button (click)="pretendTakePicture()">Pretend Take Picture</button>
-  <button (click)="sendPicture()">Send Pretend</button>
 
   Latest Pic:
   <!-- <img [src]="{{base64Image}}" *ngIf="base64Image"> -->
