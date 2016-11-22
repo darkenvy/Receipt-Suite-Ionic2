@@ -4,19 +4,40 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { CameraImage } from '../home/sample-camera-image'; // dummy image
 import { Observable } from 'rxjs/Observable';
 
+interface Receipt {
+  id: number,
+  name: string,
+  price: number,
+  expires: string
+}
+
 @Injectable()
 export class HttpService {
-  public base64Image: string;
-  public base64ImageRaw: string;
+  public test: string;
+  public listItems;
+  // public base64Image: string;
+  // public base64ImageRaw: string;
 
   constructor(public http:Http) {
-    this.base64ImageRaw = CameraImage;
+    // this.base64ImageRaw = CameraImage;
+    this.test = 'fresh instance'
   }
 
-  getDate(): Observable<any[]> {
+  sendImage() {
+    if (this.listItems != null) {
+      return Observable.of(this.listItems);
+    }
+    else {
+      return this.getData();
+    }
+
+  }
+
+  private getData(): Observable<any[]> {
+    this.test = 'same instance!';
     return this.http.get('http://development.com:3000/')
       .map(response => <any[]>response.json())
-      .do(data => console.log('All: ' + data))
+      .do(data => this.listItems = data)
   }
 
   // getSampleData() {

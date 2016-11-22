@@ -9,8 +9,7 @@ import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
-  providers: [HttpService]
+  templateUrl: 'home.html'
 })
 export class HomePage {
   public base64Image: string;
@@ -18,14 +17,17 @@ export class HomePage {
   public result: any[];
   constructor(
     public navCtrl: NavController,
-    private httpService: HttpService
+    public httpService: HttpService
     ) {}
 
 
 
   ngOnInit(): void {
-    this.httpService.getDate()
+    this.httpService.sendImage()
       .subscribe(data => this.result = data);
+    // this.httpService.sendImage();
+    // this.httpService.getData()
+    //   .subscribe(data => this.result = data);
   }
 
 

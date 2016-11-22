@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ModalContentPage } from '../pages/item-list-modal/modal';
 import 'rxjs/Rx';
+import { HttpService } from '../pages/services/http.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,6 @@ import 'rxjs/Rx';
     TabsPage,
     ModalContentPage
   ],
-  providers: []
+  providers: [HttpService]
 })
 export class AppModule {}

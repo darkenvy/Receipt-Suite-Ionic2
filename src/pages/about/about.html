@@ -9,7 +9,7 @@
 <ion-content padding>
 
   <a ion-item (click)="openModal({charNum: 0})">Gollum</a>
-
+  <p>{{httpService.test}}</p>
   <h5>Set info about the Items you purchases</h5>
   <ion-list inset *ngFor="let item of receipt">
     <ion-item-sliding>
