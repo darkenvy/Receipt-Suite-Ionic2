@@ -14,63 +14,31 @@ interface Receipt {
 @Injectable()
 export class HttpService {
   public test: string;
-  public listItems;
+  public listItems: Receipt[];
   // public base64Image: string;
-  // public base64ImageRaw: string;
+  public base64ImageRaw: string;
 
   constructor(public http:Http) {
     // this.base64ImageRaw = CameraImage;
-    this.test = 'fresh instance'
+    this.test = 'fresh instance';
+    this.base64ImageRaw = CameraImage;
   }
 
   sendImage() {
-    if (this.listItems != null) {
-      return Observable.of(this.listItems);
-    }
-    else {
-      return this.getData();
-    }
-
+    if (this.listItems != null) return Observable.of(this.listItems);
+    else return this.getData()
   }
 
-  private getData(): Observable<any[]> {
+  // POST route : Post image to recieve text
+  private getData(): Observable<Receipt[]> {
     this.test = 'same instance!';
-    return this.http.get('http://development.com:3000/')
-      .map(response => <any[]>response.json())
+    let uri = 'http://development.com:3000/'
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = '{"base64": "' + this.base64ImageRaw + '"}'
+    return this.http.post(uri, body, options)
+      .map(response => <Receipt[]>response.json().map(item => {item['expires'] = ''; return item;}))
       .do(data => this.listItems = data)
   }
-
-  // getSampleData() {
-  //   this.http.get('http://development.com:3000/')
-  //     .subscribe(
-  //       data => {
-  //         console.log(data)
-  //       },
-  //       error => console.log(error)
-  //       )
-  // }
-
-
-
-  // sendPicture() {
-  //   this.debug = 'send button pressed';
-  //   let headers = new Headers({ 'Content-Type': 'application/json' });
-  //   let options = new RequestOptions({ headers: headers });
-  //   let body = '{"base64": "' + this.base64ImageRaw + '"}'
-  //   console.log('base64Image: ', this.base64Image.length);
-  //   // this.http.post('192.168.1.112:3000/', body, options)
-  //   this.http.post('http://development.com:3000/', body, options)
-  //     .subscribe(
-  //       data => {
-  //         console.log(data);
-  //         this.debug = 'pic sent';
-  //       },
-  //       error => {
-  //         console.log(error)
-  //         this.debug = 'send pic error';
-  //       }
-  //       )
-  // }
-
 
 }
